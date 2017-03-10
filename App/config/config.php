@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 $config['base_url'] = ''; // Base URL including trailing slash (e.g. http://localhost/)
 

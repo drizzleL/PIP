@@ -10,9 +10,10 @@ session_start();
 
 // Defines
 define('ROOT_DIR', realpath(dirname(__FILE__)) .'/');
-define('APP_DIR', ROOT_DIR .'application/');
+define('APP_DIR', ROOT_DIR .'App/');
 
 // Includes
+require(ROOT_DIR .'system/autoload.php');
 require(APP_DIR .'config/config.php');
 require(ROOT_DIR .'system/model.php');
 require(ROOT_DIR .'system/view.php');

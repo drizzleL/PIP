@@ -16,12 +16,18 @@ function pip()
     // Get our url path and trim the / of the left and the right
     if($request_url != $script_url) $url = trim(preg_replace('/'. str_replace('/', '\/', str_replace('index.php', '', $script_url)) .'/', '', $request_url, 1), '/');
 
+    $route = Route::getInstance();
+    list($controller, $action) = $route->getController($url);
+    if (!$controller) {
+        echo 'Not Found';die;
+    }
+
     // Split the url into segments
     $segments = explode('/', $url);
 
-    // Do our default checks
-    if(isset($segments[0]) && $segments[0] != '') $controller = $segments[0];
-    if(isset($segments[1]) && $segments[1] != '') $action = $segments[1];
+//    // Do our default checks
+//    if(isset($segments[0]) && $segments[0] != '') $controller = $segments[0];
+//    if(isset($segments[1]) && $segments[1] != '') $action = $segments[1];
 
 //    // Get our controller file
 //    $path = APP_DIR . 'controllers/' . $controller . '.php';
